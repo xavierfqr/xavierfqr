@@ -3,13 +3,15 @@ import './App.css';
 import HomePage from './components/HomePage';
 
 function App() {
+  const nextSectionRef: any = React.useRef(null);
+  const executeScroll = () => nextSectionRef.current.scrollIntoView();
   return (
-    <div className='app'>
+    <div className='container'>
       <section>
-        <HomePage/>
+        <HomePage scrollDown={executeScroll}/>
       </section>
-      <section>
-        <HomePage/>
+      <section ref={nextSectionRef}>
+        <div>lqiefjioqej</div>
       </section>
     </div>
   );
