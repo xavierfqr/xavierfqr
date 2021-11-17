@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
 import HomePage from './components/HomePage';
+import WelcomePage from './components/WelcomePage';
 
 function App() {
   const nextSectionRef: any = React.useRef(null);
@@ -11,7 +12,7 @@ function App() {
         <HomePage scrollDown={executeScroll}/>
       </section>
       <section ref={nextSectionRef}>
-        <div>lqiefjioqej</div>
+        <WelcomePage/>
       </section>
     </div>
   );

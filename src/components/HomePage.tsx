@@ -1,8 +1,9 @@
 import React from 'react';
 import { Canvas, useFrame, useThree } from '@react-three/fiber';
 import { OrbitControls, Stars, PerspectiveCamera, Sky } from '@react-three/drei';
-import {LetterX, LetterA, LetterE, LetterI, LetterR, LetterV} from './LetterX';
+import {LetterX, LetterA, LetterE, LetterI, LetterR, LetterV} from './Letters';
 import { Physics, useBox } from '@react-three/cannon';
+import styles from './HomePage.module.css';
 
 
 function WrapLetter(props : any) {
@@ -10,8 +11,9 @@ function WrapLetter(props : any) {
     const [isLoaded, setIsLoaded] = React.useState(false);
     const [radius, setRadius] = React.useState(500);
     const [angle, setAngle] = React.useState(0);
+    const [mass, setMass] = React.useState(0)
 
-    const [ref, api] = useBox(() => ({ mass: 0, position: [0, 0, 0] }))
+    const [ref, api] = useBox(() => ({ mass: mass, position: [0, 0, 0] }))
 
 
 
@@ -22,19 +24,19 @@ function WrapLetter(props : any) {
         if (!isLoaded){
             setRadius((radius) => radius - (6 * radius / 100));
         }
-        //camera.rotation.set(0, 0.1 * time, 0);
     })
 
     React.useEffect(() => {
         if (radius < 5) {
             setIsLoaded(true);
             setRadius(5);
-            api.mass.set(1);
+            setMass(1)
+            api.mass.set(mass)
         }
     }, [radius])
 
     return (
-        <mesh ref={ref} onClick={() => {console.log("hoiwefhj");api.mass.set(1)}}>
+        <mesh ref={ref} onClick={() => {api.mass.set(mass)}}>
             <LetterX position={[-2.5, 0, 0]}/>
             <LetterA position={[-1.5, 0, 0]}/>
             <LetterV position={[-0.5, 0, 0]}/>
@@ -46,10 +48,9 @@ function WrapLetter(props : any) {
 }
 
 function HomePage({scrollDown} : any) {
-
     return (
-        <div style={{height: '100%', position: 'relative'}}>
-            <Canvas style={{background: 'black', position:'absolute'}}>
+        <div className={styles.container}>
+            <Canvas className={styles.canvas}>
                 <OrbitControls addEventListener={undefined} hasEventListener={undefined} removeEventListener={undefined} dispatchEvent={undefined}/>
                 <Stars/>
                 <spotLight position={[2, 2, 10]} angle={0.7}/>
@@ -58,7 +59,11 @@ function HomePage({scrollDown} : any) {
                     <WrapLetter/>
                 </Physics>
             </Canvas>
-            <div style={{position: 'absolute', zIndex: 10, color:'white', left: 0, right: 0, bottom: 10, textAlign:'center', cursor: 'pointer'}} onClick={scrollDown}>Scroll Down !</div>
+            <div className={`${styles.scrollDown} ${styles.bounce}`} onClick={scrollDown}>
+                <p>Scroll Down !</p>
+                <img src="white-arrow-down.png" className={styles.image}></img>
+            </div>
+            
         </div>
     )
 }
