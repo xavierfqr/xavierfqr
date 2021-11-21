@@ -1,0 +1,44 @@
+.container {
+  height: 100%;
+  position: relative;
+}
+
+.canvas {
+  background: #222024;
+  position: absolute;
+}
+
+.scrollDown {
+  position: absolute;
+  z-index: 10;
+  color: white;
+  left: 0;
+  right: 0;
+  bottom: 0px;
+  text-align: center;
+  cursor: pointer;
+  animation-duration: 1.5s;
+  animation-fill-mode: forwards;
+  animation-iteration-count: infinite;
+}
+
+@keyframes bounce {
+  0% {
+    trasnform: translateY(0px);
+  }
+  35% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.bounce {
+  animation-name: bounce;
+}
+
+.image {
+  width: 20px;
+  height: 20px;
+}

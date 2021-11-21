@@ -9,7 +9,7 @@ function App() {
   return (
     <div className='container'>
       <section>
-        <HomePage scrollDown={executeScroll}/>
+        <HomePage/>
       </section>
       <section ref={nextSectionRef}>
         <WelcomePage/>
