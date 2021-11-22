@@ -9,6 +9,16 @@
   height: 100%;
 }
 
+.section::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 100px;
+  background: linear-gradient(to top, #292a2d, transparent);
+  z-index: 1000;
+}
+
 .section img {
   position: absolute;
   top: 0;
@@ -19,19 +29,21 @@
 }
 
 #stars {
+  left: 100px;
   height: 40%;
 }
 
 #moon {
-  width: 20%;
-  height: 40%;
-  left: 35%;
+  width: 35%;
+  height: 35%;
+  left: 25%;
+  object-fit: contain;
   mix-blend-mode: screen;
 }
 
 #backWind {
-  height: 10%;
-  top: 37%;
+  height: 7%;
+  top: 40%;
 }
 
 #mountain {
@@ -41,6 +53,9 @@
 #frontWind {
   height: 150px;
   top: 20rem;
+  animation: linear infinite;
+
+  animation-duration: 5s;
 }
 
 #front {
@@ -50,4 +65,13 @@
 }
 
 #frontParticles {
+}
+
+@keyframes front-wind {
+  0% {
+    left: -50%;
+  }
+  100% {
+    left: 100%;
+  }
 }
