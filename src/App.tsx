@@ -7,7 +7,7 @@ function App() {
   const containerRef = React.useRef<HTMLDivElement>(null);
   const nextSectionRef: any = React.useRef(null);
   const executeScroll = () => nextSectionRef.current.scrollIntoView();
-  
+
   return (
     <div className='container' ref={containerRef}>
       <section>

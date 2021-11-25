@@ -1,6 +1,7 @@
 .container {
   background: linear-gradient(#2b1055, #7597de);
   height: 100%;
+  overflow: hidden;
 }
 
 .section {
@@ -60,11 +61,13 @@
 
 #front {
   height: 80%;
-  bottom: 0;
+  bottom: -100px;
   top: auto;
 }
 
 #frontParticles {
+  right: 0;
+  left: auto;
 }
 
 @keyframes front-wind {
