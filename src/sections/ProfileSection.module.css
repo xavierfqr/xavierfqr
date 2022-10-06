@@ -4,12 +4,14 @@
   color: white;
   margin-left: 4px;
   margin-right: 4px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .header {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  margin-left: 20px;
 }
 
 .header > h1 {
@@ -28,7 +30,6 @@
 }
 
 .main {
-  width: 80%;
   display: flex;
   flex-direction: column;
 }
@@ -44,10 +45,22 @@
 
 .upperMain {
   display: flex;
+  margin-bottom: 10px;
 }
 
 .downMain {
   display: flex;
+  margin-left: 10px;
+}
+
+.downMain > * {
+  position: relative;
+  top: 0;
+  transition: top ease 0.5s;
+}
+
+.downMain > *:hover {
+  top: -10px;
 }
 
 .downMain > a {
@@ -58,4 +71,6 @@
   display: flex;
   align-items: center;
   cursor: pointer;
+  color: lightblue;
+  font-size: 18px;
 }

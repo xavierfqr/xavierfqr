@@ -23,24 +23,24 @@ function WelcomePage() {
       <main className={styles.main}>
         <div className={styles.upperMain}>
           <h3 className={styles.intro}>
-            Just graduated from engeneering school. I'm a full stack software engineer mainly focused on ReactJs and
-            NodeJs technologies.
+            Just graduated from a French engineering school. I'm a full stack software engineer mainly focused on
+            ReactJs and NodeJs technologies using Typescript.
           </h3>
           <img className={styles.gif} alt="front-end GIF" src="front-endGIF.gif" />
         </div>
         <div className={styles.downMain}>
           <a target="_blank" rel="noreferrer" href="https://github.com/xavierfqr">
-            <img color="white" width="20px" alt="github" src="github.svg"></img>
+            <img color="white" width="30px" alt="github" src="github.svg"></img>
           </a>
           <a
             target="_blank"
             rel="noreferrer"
             href="https://www.linkedin.com/in/xavier-facqueur-06413a195/?locale=en_US"
           >
-            <img width="20px" alt="github" src="linkedin.svg"></img>
+            <img width="30px" alt="github" src="linkedin.svg"></img>
           </a>
           <div onClick={downloadResume} className={styles.resume}>
-            Download resume <img alt="pdf" src="pdf.png"></img>
+            Download resume <img alt="pdf" width="30px" src="pdf.png"></img>
           </div>
         </div>
       </main>
