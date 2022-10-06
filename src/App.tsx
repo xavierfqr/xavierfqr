@@ -1,7 +1,8 @@
 import React from 'react';
 import './App.css';
-import HomePage from './components/HomePage';
-import WelcomePage from './components/WelcomePage';
+import HomeSection from './sections/HomeSection';
+import ProjectsSection from './sections/ProjectsSection';
+import ProfileSection from './sections/ProfileSection';
 
 function App() {
   const containerRef = React.useRef<HTMLDivElement>(null);
@@ -9,12 +10,15 @@ function App() {
   const executeScroll = () => nextSectionRef.current.scrollIntoView();
 
   return (
-    <div className='container' ref={containerRef}>
+    <div className="container" ref={containerRef}>
       <section>
-        <HomePage containerRef={containerRef}/>
+        <HomeSection containerRef={containerRef} scrollDown={executeScroll} />
       </section>
       <section ref={nextSectionRef}>
-        <WelcomePage/>
+        <ProfileSection />
+      </section>
+      <section>
+        <ProjectsSection />
       </section>
     </div>
   );
