@@ -30,9 +30,9 @@ function App() {
       <section ref={nextSectionRef}>
         <ProfileSection />
       </section>
-      <section>
+      {/* <section>
         <ProjectsSection />
-      </section>
+      </section> */}
     </div>
   );
 }
