@@ -14,6 +14,18 @@ function HomePage({ containerRef, scrollDown }: Props) {
   const frontParticlesRef = React.useRef<HTMLImageElement>(null);
   const exploreRef = React.useRef<HTMLDivElement>(null);
 
+  const onMouseEnterMoon = () => {
+    console.log('enter');
+    if (!moonRef || !moonRef.current) return;
+    moonRef.current.style.mixBlendMode = 'exclusion';
+  };
+
+  const onMouseLeaveMoon = () => {
+    console.log('leave');
+    if (!moonRef || !moonRef.current) return;
+    moonRef.current.style.mixBlendMode = 'screen';
+  };
+
   React.useEffect(() => {
     containerRef.current?.addEventListener('scroll', () => {
       const scrollValue = containerRef.current?.scrollTop;
@@ -32,12 +44,21 @@ function HomePage({ containerRef, scrollDown }: Props) {
     <div className={styles.container}>
       <section className={styles.section}>
         <img alt="stars" ref={starsRef} id={styles.stars} src="landing-page/stars.png" />
-        <img alt="moon" ref={moonRef} id={styles.moon} src="landing-page/moon.png" />
+
         <img alt="back-wind" id={styles.backWind} src="landing-page/back-wind.png" />
         <img alt="moutain" id={styles.mountain} src="landing-page/mountain.png" />
+
         <img alt="front-wind" ref={frontWindRef} id={styles.frontWind} src="landing-page/front-wind.png" />
         <img alt="front" ref={frontRef} id={styles.front} src="landing-page/front.png" />
         <img alt="particles" ref={frontParticlesRef} id={styles.frontParticles} src="landing-page/front-particle.png" />
+        <img
+          alt="moon"
+          onMouseEnter={onMouseEnterMoon}
+          onMouseLeave={onMouseLeaveMoon}
+          ref={moonRef}
+          id={styles.moon}
+          src="landing-page/moon.png"
+        />
         <div ref={exploreRef} id={styles.explore}>
           Welcome !
         </div>
